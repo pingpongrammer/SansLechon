@@ -173,7 +173,7 @@ public function verifyOtp(Request $request) {
                 'body' => 'Your OTP is ' . $otp,
             ];
     
-            // Mail::to($user->email)->send(new OtpMail($emailData));
+            Mail::to($user->email)->send(new OtpMail($emailData));
     
             // dd('Email sent successfully');
         }
