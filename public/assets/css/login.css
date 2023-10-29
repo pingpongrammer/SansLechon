@@ -1,0 +1,272 @@
+
+
+body{
+    background-image: url("/assets/img/background3.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Keeps the background fixed while resizing */
+}
+
+.section{
+    display: flex;
+    flex-direction: row;
+    font-family: 'Jomhuria', cursive;
+    height: 600px;
+}
+.display-logo{
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 25px;
+    padding-top: 25px;
+}
+
+.display-logo img{
+    width: 95%;
+}
+.display-logo h1{
+    font-size: 50px;
+    text-transform: uppercase;
+    color: #A55935;
+    margin: 3px 10px 0px 20px; 
+}
+
+.location-logo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: -23px;
+    margin-left: 10px;
+}
+
+.location-logo h2{
+font-weight: 300;
+}
+
+.location-logo img{
+    width: 40px;
+    /* height: 30px; */
+}
+
+.form{
+    /* background-color: gray; */
+    justify-content: center;
+    flex: 1;
+    align-items: center;
+    display: flex;
+
+}
+
+.card{
+    /* height: 85%; */
+    width: 50%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    border: solid 1px rgb(0, 0, 0);
+}
+
+
+.card h1{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 80px;
+    text-transform: uppercase;
+    color: #A55935;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-weight: 300;
+}
+
+.error-message{
+    color: red;
+    font-size: 20px;
+    margin: 0px;
+    margin-bottom: 5px;
+    margin-left:5px
+}
+
+.label{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-text{
+    margin-top: 10px;
+    align-items: start;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding-left: 10%;
+}
+
+.card label{
+    font-size: 30px;
+    text-transform: uppercase;
+    color: #A55935;
+}
+.card input{
+    font-size: 27px;
+    border-radius: 15px;
+    border: solid 1px #A55935;
+    width: 80%;
+    height: 35px;
+    padding-left: 10%;
+    font-size: 30px;
+    font-family: 'Jomhuria', cursive;
+}
+
+input::placeholder{
+    font-family: 'Jomhuria', cursive;
+    color: rgb(189, 185, 185);
+    font-size: 25px;
+}
+
+input:focus {
+    border-color: #A55935;
+    outline-color: #A55935; /* Change the outline color to blue */
+  }
+
+button{
+    width: 250px;
+    font-size: 27px;
+    border-radius: 15px;
+    border: solid 1px #A55935;
+    background-color: #A55935;
+    color: white;
+    font-size: 40px;
+    font-family: 'Jomhuria', cursive;
+    cursor: pointer;
+}
+
+.button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    flex-direction: column;
+}
+
+.success-message{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -30px;
+    flex-direction: column;
+}
+
+.close{
+    /* width: 250px; */
+    font-size: 2px;
+    border-radius: 10px;
+    border: solid 1px #35a557;
+    background-color: #35a557;
+    color: rgb(0, 0, 0);
+    font-size: 27px;
+    font-family: 'Jomhuria', cursive;
+    cursor: pointer;
+    flex: 1;
+    font-weight: 100;
+    padding: 4px 7px;
+    margin: 0px 0px;
+}
+
+.close:hover{
+background-color: #35a557;
+}
+
+button:hover{
+    background-color: white;
+    color: black;
+}
+
+.button h2, a{
+    text-decoration: none;
+    font-weight: 200;
+}
+
+@media screen and (max-width: 960px) {
+    .card{
+        width: 60%;
+  }
+}
+
+@media screen and (max-width: 760px) {
+    .card{
+        width: 80%;
+  }
+}
+
+@media screen and (max-width: 540px) {
+    .section{
+        display: flex;
+        flex-direction: column;
+        font-family: 'Jomhuria', cursive;
+        width: 100%;
+    }
+
+    .display-logo{
+        /* display: flex; */
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin: 0px 0px 20px 110px;
+    }
+    
+    .display-logo img{
+        width: 55%;
+        margin-top: -20px;
+    }
+    .display-logo h1{
+        
+        display: none;
+    }
+    
+    .location-logo{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .location-logo img{
+        width: 20px;
+        /* height: 30px; */
+        padding-top: 12px;
+    }
+
+    .location-logo h2{
+        font-weight: 100;
+        font-size: 16px;
+        width: 190px;
+        margin: 0px;
+        }
+        
+        .card button{
+            width: 150px;
+        }
+
+    .card{
+        width: 80%;
+        margin-top: 10px;
+  }
+
+  body{
+    background-image: url("/assets/img/mobileee.svg");
+}
+
+@media screen and (max-width: 300px) {
+    
+  body{
+    background-image: url("/assets/img/mobileee.svg");
+    height: 100%;
+}
+}
+
+}

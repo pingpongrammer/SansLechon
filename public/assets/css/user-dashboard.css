@@ -1,0 +1,92 @@
+.bg-brown{
+    background-color: #944b2a;
+}
+
+.bg-brown-light{
+    background-color: #A65B37;
+}
+
+.bg-lightred{
+    background-color: #ffcccc;
+}
+
+.bg-brown-body{
+    background-color: #FFE9CF; 
+}
+
+.bg-lightgreen{
+    background-color: #e1fdd5; 
+}
+
+.border-brown-light{
+    background-color: #FFE9CF; 
+}
+
+.footer-start{
+    color: #ffffff; 
+    border-color: #FFE9CF;
+}
+.text-brown{
+    color: #A65B37;;
+}
+
+.box-image{
+    height: 70px;
+    width: 100px;
+}
+
+.box-imagee{
+    height: 150px;
+    width: 250px;
+}
+.img-logo{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right:10px;
+}
+
+.shop{
+    display: flex;
+    align-items: center;
+}
+
+.shop h5{
+    font-weight: bold;
+}
+.shop span{
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.index-image{
+    height:225px; 
+    width:245px
+}
+
+@media screen and (max-width: 690px) {
+
+    .box-image{
+        height: 100px;
+        width: 150px;
+    }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 700px) {
+
+    .index-image{
+        height: 200px;
+        width: 250px;
+    }
+}
+
+
+.fullscreen-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(169, 169, 169, 0.5); /* Gray color with 50% opacity */
+    z-index: 100
+  }
