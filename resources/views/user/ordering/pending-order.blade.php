@@ -1,5 +1,6 @@
 @extends('layout.header-footer-layout')
 @section('content')
+@include('components.customer-alert-message')
 
 <h3 class="text-center m-3">Pending Order</h3>
 

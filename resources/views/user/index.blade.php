@@ -119,14 +119,14 @@
                                     <div class="card rounded-0 ">
                                         @foreach($freeby as $freebies)
                                         @if($freebies->freeb1 === null && $freebies->freeby1 && $freebies->freeby1->shop === 'cake')
-                                            <img class="box-image card-img rounded-0 img-fluid" src="/assets/img/cake.png" id="image{{ $loop->index }}">
+                                            <img class="box-image  rounded-0 img-fluid" src="/assets/img/cake.png" id="image{{ $loop->index }}">
                                         @endif
                                         @if($freebies->freeb1 == null)
-                                        <img class="box-image card-img rounded-0 img-fluid" src="/assets/img/cake.png" id="image{{ $loop->index }}">
+                                        <img class="box-image  rounded-0 img-fluid" src="/assets/img/cake.png" id="image{{ $loop->index }}">
                                         @endif
                                         @if($freebies->freeb1 != null && $freebies->freeby1 && $freebies->freeby1->shop === 'cake')
                                         {{-- @if($freebies->category_id != null) --}}
-                                        <img class="card-img rounded-0 img-fluid" id="preview" src="{{ asset('storage/' . $freebies->freeby1->img) }}" alt=""/>
+                                        <img class="box-image rounded-0 img-fluid" id="preview" src="{{ asset('storage/' . $freebies->freeby1->img) }}" alt=""/>
                                         @endif
                                         @endforeach
                                     </div>
@@ -135,13 +135,13 @@
                                     <div class="card rounded-0">
                                         @foreach($freeby as $freebies)
                                         @if($freebies->freeb2 === null && $freebies->freeby2 && $freebies->freeby2->shop === 'mombizz')
-                                            <img class="box-image card-img rounded-0 img-fluid" src="/assets/img/mombizz2.jpg" id="image{{ $loop->index }}">
+                                            <img class="box-image rounded-0 img-fluid" src="/assets/img/mombizz2.jpg" id="image{{ $loop->index }}">
                                         @endif
                                         @if($freebies->freeb2 != null && $freebies->freeby2 && $freebies->freeby2->shop === 'mombizz')
-                                        <img class="card-img rounded-0 img-fluid" id="preview" src="{{ asset('storage/' . $freebies->freeby2->img) }}" alt=""/>
+                                        <img class="box-image rounded-0 img-fluid" id="preview" src="{{ asset('storage/' . $freebies->freeby2->img) }}" alt=""/>
                                         @endif
                                         @if($freebies->freeb2 == null)
-                                        <img class="box-image card-img rounded-0 img-fluid" src="/assets/img/mombizz2.jpg" id="image{{ $loop->index }}">
+                                        <img class="box-image rounded-0 img-fluid" src="/assets/img/mombizz2.jpg" id="image{{ $loop->index }}">
                                         @endif
                                         @endforeach
                                     </div>
@@ -149,13 +149,13 @@
                               
                                   <div class="col-3 px-1">
                                     <div class="card rounded-0">
-                                      <img class="box-image card-img rounded-0 img-fluid" src="/assets/img/coke1.jpg" >
+                                      <img class="box-image  rounded-0 img-fluid" src="/assets/img/coke1.jpg" >
                                     </div>
                                   </div>
                               
                                   <div class="col-3 px-1">
                                     <div class="card rounded-0">
-                                      <img class="box-image card-img rounded-0 img-fluid" src="/assets/img/freebies3.jpg" >
+                                      <img class="box-image  rounded-0 img-fluid" src="/assets/img/freebies3.jpg" >
                                     </div>
                                   </div>
                                 </div>
@@ -209,7 +209,7 @@
         <div class="container py-5">
             <div class="row text-center pt-3">
                 <div class="col-lg-8 m-auto">
-                    <h1 class="h1">We Have Freebies!</h1>
+                    <h1 class="fs-1">We Have Freebies!</h1>
                     <p>
                         "San's Lechon: Celebrate with Tradition and Enjoy Freebies! Order now and get a cake, 1 food bilao, a 1.5 coke and sauce to make your feast even more special!"
                     </p>
@@ -242,7 +242,7 @@
             <div class="container">
                 <div class="row text-center pt-3 pb-3">
                     <div class="col-lg-8 m-auto">
-                        <h3 style="font-size:35px">Also Available In The Shop!</h3>
+                        <h3 class="fs-2">Also Available In The Shop!</h3>
                     </div>
                 </div>
     
@@ -256,7 +256,7 @@
                         <div class="product-wap card rounded-0">
                             <form method="POST" action="/changeFreeb">
                                 @csrf
-                                <img class="card-img rounded-0 img-fluid" id="preview" src="./assets/img/cake.png"  alt="" style="width:250px; height:250px"/>
+                                <img class="shop-img rounded-0 img-fluid" id="preview" src="./assets/img/cake.png"  alt=""/>
                                 <select class="input form-control mt-1" name="size" required>
                                     {{-- <option value="">-Select Size-</option> --}}
                                     <option value="small" {{ old('size') == 'small' ? 'selected' : '' }}>Small(6x6 tall)</option>
@@ -267,8 +267,8 @@
                                 
                             </div>
                         <div class="d-flex mt-3" style="justify-content: center; items:center">
-                            <input type="hidden" name="size" id="sizeInput" value="">
-                            <button type="submit" class="btn btn-success btn-sm mr-2">Change Freebies</button>
+                            
+                            <button type="submit" class="btn btn-success btn-sm mr-2 order-button">Change Freebies</button>
 
                         </form>
                     </div>
@@ -280,7 +280,7 @@
     
                         <form method="POST" action="{{ url('addCart', $categories->id) }}">
                                 @csrf
-                                <img class="card-img rounded-0 img-fluid" id="preview" src="{{$categories->img ? asset ('storage/' .$categories->img) : asset('/storage/no/-image.png')}}" alt="" style="width:250px; height:250px"/>
+                                <img class="shop-img rounded-0 img-fluid" id="preview" src="{{$categories->img ? asset ('storage/' .$categories->img) : asset('/storage/no/-image.png')}}" alt=""/>
                                 <input hidden name="username" value="{{auth()->user()->username}}">
                                 <input hidden name="shop" value="{{$categories->shop}}">
                                 <input hidden name="status" value="cart">
@@ -297,13 +297,13 @@
                             
                         <div class="d-flex mt-3" style="justify-content: center; items:center">
                           
-                            <button id="submitButton1{{ $loop->index }}" disabled onclick="submitForm(1, {{ $loop->index }})" type="submit" class="btn btn-success btn-sm  mr-2">Add to Cart</button> 
+                            <button id="submitButton1{{ $loop->index }}" disabled onclick="submitForm(1, {{ $loop->index }})" type="submit" class="order-button btn btn-success btn-sm mr-2">Add to Cart</button> 
                         </form>
                         <form method="POST" action="{{ url('changeFreebies', $categories->id) }}">
                             @csrf
                             <input type="hidden" name="freeb1" value="{{$categories->id}}">
                             <input type="hidden" name="size" id="sizeInput{{ $loop->index }}" value="">
-                            <button id="submitButton2{{ $loop->index }}" disabled onclick="submitForm(2, {{ $loop->index }})" type="submit" class="btn btn-success btn-sm mr-2">Change Freebies</button>
+                            <button id="submitButton2{{ $loop->index }}" disabled onclick="submitForm(2, {{ $loop->index }})" type="submit" class=" order-button btn btn-success btn-sm mr-2">Change Freebies</button>
                         </form>
                     </div>
                     </div>
@@ -320,17 +320,17 @@
                                     <div class="product-wap card rounded-0">
                                         <form method="POST" action="/changeFreeb2">
                                             @csrf
-                                            <img class="card-img rounded-0 img-fluid" id="preview" src="./assets/img/mombizz2.jpg" alt="" style="width:250px; height:250px"/>
+                                            <img class="shop-img rounded-0 img-fluid" id="preview" src="./assets/img/mombizz2.jpg" alt="" />
                                             <select class="input form-control mt-1" name="modeOfPayment" value="{{old('payment')}}"  required>
                                                 <option value="">-Select Size-</option>
-                                                <option value="Bank">Medium(6-8 pax)</option>
-                                                <option value="Bank">Large(10-12 pax) - add ₱300</option>
-                                                <option value="Bank">Extra Large(14x16 pax) - add ₱300</option>
+                                                <option value="medium">Medium(6-8 pax)</option>
+                                                <option value="large">Large(10-12 pax) - add ₱300</option>
+                                                <option value="xlarge">Extra Large(14x16 pax) - add ₱600</option>
                                             </select>
                                     
                                     </div>
                                         <div class="d-flex mt-3" style="justify-content: center; items:center">
-                                        <button class="btn btn-success btn-sm  mr-2">Change Freebies</button>
+                                        <button class="btn btn-success btn-sm  mr-2 order-button">Change Freebies</button>
                                     </form>
                                         </div>
                                 </div> 
@@ -340,7 +340,7 @@
                                         <div class="product-wap card rounded-0">
                                             <form method="POST" action="{{ url('addCart', $mombizz->id) }}">
                                                 @csrf
-                                                <img class="card-img rounded-0 img-fluid" id="preview" src="{{$mombizz->img ? asset ('storage/' .$mombizz->img) : asset('/storage/no/-image.png')}}" alt="" style="width:250px; height:250px"/>
+                                                <img class="shop-img rounded-0 img-fluid" id="preview" src="{{$mombizz->img ? asset ('storage/' .$mombizz->img) : asset('/storage/no/-image.png')}}" alt="" />
                                                 <input hidden name="username" value="{{auth()->user()->username}}">
                                                 <input hidden name="shop" value="{{$mombizz->shop}}">
                                                 <input hidden name="status" value="cart">
@@ -355,13 +355,13 @@
                                         </div>
 
                                         <div class="d-flex mt-3" style="justify-content: center; items:center">
-                                            <button id="submitButton1Mombizz{{ $loop->index }}" disabled onclick="submitForm(1, {{ $loop->index }})" type="submit" class="btn btn-success btn-sm  mr-2">Add to Cart</button> 
+                                            <button id="submitButton1Mombizz{{ $loop->index }}" disabled onclick="submitForm(1, {{ $loop->index }})" type="submit" class="order-button btn btn-success btn-sm  mr-2">Add to Cart</button> 
                                         </form>
                                         <form method="POST" action="{{ url('changeFreebies2', $mombizz->id) }}">
                                             @csrf
                                             <input type="hidden" name="freeb1" value="{{$mombizz->id}}">
                                             <input type="hidden" name="size" id="sizeInputMombizz{{ $loop->index }}" value="">
-                                            <button id="submitButton2Mombizz{{ $loop->index }}" disabled onclick="submitForm(2, {{ $loop->index }})" type="submit" class="btn btn-success btn-sm mr-2">Change Freebies</button>
+                                            <button id="submitButton2Mombizz{{ $loop->index }}" disabled onclick="submitForm(2, {{ $loop->index }})" type="submit" class="order-button btn btn-success btn-sm mr-2">Change Freebies</button>
                                         </form>
                                     </div>
                                     </div>

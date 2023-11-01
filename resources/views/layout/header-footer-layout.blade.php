@@ -71,13 +71,13 @@ https://templatemo.com/tm-559-zay-shop
             </a>
 
             <div class="d-flex">
-                <a class="nav-link position-relative text-decoration-none font-weight-bold navbar-toggler border-0" href="/cart">Cart
+                <a class="nav-link position-relative text-decoration-none font-weight-bold navbar-toggler border-0 mt-1" href="/cart">
                     <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
                     <span class="nav-link position-absolute top-14 left-80 translate-middle badge rounded-pill bg-light text-dark">{{$cartCount}}</span>
                 </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
             </div>
             <div class="align-self-center collapse navbar-collapse flex-fill d-lg-flex justify-content-center justify-content-lg-between " id="templatemo_main_nav">
@@ -95,6 +95,12 @@ https://templatemo.com/tm-559-zay-shop
                     </ul>
                 </div>
                 <div class="navbar justify-content-center align-items-center pl-2 mr-0">
+                    <a class="nav-link position-relative text-decoration-none font-weight-bold border-0 d-lg-block d-md-none d-sm-none d-none" href="/cart">
+                        Cart
+                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                        <span class="nav-link position-absolute top-14 left-80 translate-middle badge rounded-pill bg-light text-dark">{{$cartCount}}</span>
+                    </a>
+                                        
                     <div class="dropdown">
                         <button class="nav-icon position-relative text-decoration-none dropdown-toggle" style="background-color: white; border: none;" type="button" id="responsiveDropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ auth()->user()->username }}

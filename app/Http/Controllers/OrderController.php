@@ -82,7 +82,7 @@ class OrderController extends Controller
         // Update the order with the proofPayment file path
         $order->update(['proofPayment' => $image, 'status' => 'new']);
         foreach ($carttt as $cartItem) {
-            $cartItem->update(['status' => $status]);
+            $cartItem->where('status', 'toPay')->update(['status' => $status]);
         }
    
         return redirect('/custPendingOrder')->with('message', 'Order was been successfull. Sans Lechon will reachout to you and you can also message us in our fb page and send your proof of payment. Thank You');
@@ -474,19 +474,19 @@ $user_name = auth()->user()->username;
         $cake = null;
         $user_id = auth()->user()->id; 
         $priceCake = $request->input('size');
-
+        // dd($request->all());
         switch ($priceCake) {
             case 'small':
                 $cake = null;
                 break;
             case 'medium':
-                $cake = 100;
+                $cake = 600;
                 break;
             case 'large':
-                $cake = 200;
+                $cake = 700;
                 break;
             case 'xlarge':
-                $cake = 300;
+                $cake = 800;
                 break;
         }
 
@@ -504,17 +504,14 @@ $user_name = auth()->user()->username;
         $priceMom = $request->input('size');
 
         switch ($priceMom) {
-            case 'small':
+            case 'medium':
                 $mom = null;
                 break;
-            case 'medium':
-                $mom = 100;
-                break;
             case 'large':
-                $mom = 200;
+                $mom = 799;
                 break;
             case 'xlarge':
-                $mom = 300;
+                $mom = 1099;
                 break;
         }
 

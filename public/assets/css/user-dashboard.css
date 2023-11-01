@@ -45,7 +45,10 @@
     border-radius: 50%;
     margin-right:10px;
 }
-
+.shop-img{
+    width: 250px;
+    height: 250px;
+}
 .shop{
     display: flex;
     align-items: center;
@@ -64,18 +67,56 @@
     width:245px
 }
 
-@media screen and (max-width: 690px) {
+@media screen and (max-width: 490px) {
 
     .box-image{
-        height: 100px;
-        width: 150px;
+        height: 60px;
+        width: 100px;
     }
+    .index-text{
+        font-size: 20px;
+    }
+    .shop-img{
+        width: 200px;
+        height: 180px;
+    }
+    .order-button{
+        font-size: 8px;
+        padding-left:3px;
+        padding-right:3px;
+    }
+}
+@media screen and (max-width: 590px) {
+
+
+    .shop-img{
+        width: 250px;
+        height: 180px;
+   
+}
+}
+@media screen and (max-width: 390px) {
+
+
+    .shop-img{
+        width: 200px;
+        height: 130px;
+   
+}
 }
 
 @media only screen and (min-width: 300px) and (max-width: 700px) {
 
     .index-image{
         height: 200px;
+        width: 250px;
+    }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 700px) {
+
+    .card-img{
+        height: 100px;
         width: 250px;
     }
 }
