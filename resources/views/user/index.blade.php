@@ -109,53 +109,53 @@
             @foreach($letc as $letchon)
                 <div class="col-12 col-md-4 mb-4">
                     <div class="card h-80 bg-brown-body text-dark">
-                        <a href="shop-single.html">
+                        <a>
                             <img src="./assets/img/Lechon.png" class="card-img-top" alt="...">
                         </a>
                         <div >
                             <div class="container pt-1 lechon-bg pb-2">
                                 <div class="row">
                                   <div class="col-3 px-1">
-                                    <div class="card rounded-0 ">
+                                    <div class="card rounded-3 ">
                                         @foreach($freeby as $freebies)
                                         @if($freebies->freeb1 === null && $freebies->freeby1 && $freebies->freeby1->shop === 'cake')
-                                            <img class="box-image  rounded-0 img-fluid" src="/assets/img/cake.png" id="image{{ $loop->index }}">
+                                            <img class="box-image  rounded-3 img-fluid" src="/assets/img/cake.png" id="image{{ $loop->index }}">
                                         @endif
                                         @if($freebies->freeb1 == null)
-                                        <img class="box-image  rounded-0 img-fluid" src="/assets/img/cake.png" id="image{{ $loop->index }}">
+                                        <img class="box-image  rounded-3 img-fluid" src="/assets/img/cake.png" id="image{{ $loop->index }}">
                                         @endif
                                         @if($freebies->freeb1 != null && $freebies->freeby1 && $freebies->freeby1->shop === 'cake')
                                         {{-- @if($freebies->category_id != null) --}}
-                                        <img class="box-image rounded-0 img-fluid" id="preview" src="{{ asset('storage/' . $freebies->freeby1->img) }}" alt=""/>
+                                        <img class="box-image rounded-3 img-fluid" id="preview" src="{{ asset('storage/' . $freebies->freeby1->img) }}" alt=""/>
                                         @endif
                                         @endforeach
                                     </div>
                                   </div>
                                   <div class="col-3 px-1">
-                                    <div class="card rounded-0">
+                                    <div class="card rounded-3">
                                         @foreach($freeby as $freebies)
                                         @if($freebies->freeb2 === null && $freebies->freeby2 && $freebies->freeby2->shop === 'mombizz')
-                                            <img class="box-image rounded-0 img-fluid" src="/assets/img/mombizz2.jpg" id="image{{ $loop->index }}">
+                                            <img class="box-image rounded-3 img-fluid" src="/assets/img/mombizz2.jpg" id="image{{ $loop->index }}">
                                         @endif
                                         @if($freebies->freeb2 != null && $freebies->freeby2 && $freebies->freeby2->shop === 'mombizz')
-                                        <img class="box-image rounded-0 img-fluid" id="preview" src="{{ asset('storage/' . $freebies->freeby2->img) }}" alt=""/>
+                                        <img class="box-image rounded-3 img-fluid" id="preview" src="{{ asset('storage/' . $freebies->freeby2->img) }}" alt=""/>
                                         @endif
                                         @if($freebies->freeb2 == null)
-                                        <img class="box-image rounded-0 img-fluid" src="/assets/img/mombizz2.jpg" id="image{{ $loop->index }}">
+                                        <img class="box-image rounded-3 img-fluid" src="/assets/img/mombizz2.jpg" id="image{{ $loop->index }}">
                                         @endif
                                         @endforeach
                                     </div>
                                   </div>
                               
                                   <div class="col-3 px-1">
-                                    <div class="card rounded-0">
-                                      <img class="box-image  rounded-0 img-fluid" src="/assets/img/coke1.jpg" >
+                                    <div class="card rounded-3">
+                                      <img class="box-image  rounded-3 img-fluid" src="/assets/img/coke1.jpg" >
                                     </div>
                                   </div>
                               
                                   <div class="col-3 px-1">
-                                    <div class="card rounded-0">
-                                      <img class="box-image  rounded-0 img-fluid" src="/assets/img/freebies3.jpg" >
+                                    <div class="card rounded-3">
+                                      <img class="box-image  rounded-3 img-fluid" src="/assets/img/freebies3.jpg" >
                                     </div>
                                   </div>
                                 </div>
