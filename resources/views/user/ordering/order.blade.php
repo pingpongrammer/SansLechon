@@ -36,7 +36,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="card mb-3">
-                            <img class="card-img img-fluid" src="/assets/img/Lechon.png" alt="Card image cap" id="product-detail">
+                            <img class=" img-fluid" src="/assets/img/Lechon.png" alt="Card image cap" id="product-detail">
                         </div>
                         <div class="row">
                             <div >
@@ -52,7 +52,7 @@
                                         @endif
                                         @if($freebies->freeb1 != null && $freebies->freeby1 && $freebies->freeby1->shop === 'cake')
                                         {{-- @if($freebies->category_id != null) --}}
-                                        <img class="box-imagee rounded-0 img-fluid" id="preview" src="{{ asset('storage/' . $freebies->freeby1->img) }}" alt=""/>
+                                        <img class="box-imagee card-img rounded-0 img-fluid" id="preview" src="{{ asset('storage/' . $freebies->freeby1->img) }}" alt=""/>
                                         @endif
                                         @endforeach
                                       </div>
@@ -177,6 +177,7 @@
                                 <input hidden  id="inputStatus" name="status" value="pendingproof">
                                 <input hidden  id="referral_code" name="referral_code" value="{{auth()->user()->referral_code}}">
                                 <input hidden  id="reset" name="payment" value="new">
+                                <input hidden  name="letchon_id" value="{{$let->id}}">
 
                                 @foreach($freeby as $freebies)
                                     <input hidden  name="priceCake" value="{{$freebies->priceCake}}">

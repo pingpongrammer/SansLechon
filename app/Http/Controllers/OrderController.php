@@ -355,8 +355,9 @@ $user_name = auth()->user()->username;
         
                 // $userID = $user->id;
 
-                // dd($userID);
+                // dd($request->orders_id);
                 $cart = Cart::create([
+                    'letchon_id' => $request->letchon_id,
                     'username' => $user_name,
                     'shop' => 'Lechon',
                     'priceCake' => $request->priceCake !== null ? $request->priceCake - 500 : null,

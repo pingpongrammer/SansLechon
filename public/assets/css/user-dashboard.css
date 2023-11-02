@@ -46,7 +46,7 @@
     margin-right:10px;
 }
 .shop-img{
-    width: 250px;
+    width: 300px;
     height: 250px;
 }
 .shop{
@@ -67,7 +67,7 @@
     width:245px
 }
 
-@media screen and (max-width: 490px) {
+@media screen and (max-width: 505px) {
 
     .box-image{
         height: 60px;
