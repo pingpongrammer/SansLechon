@@ -39,7 +39,7 @@ class FreebiesController extends Controller
             'small' => '', 
             'medium' => 'required', 
             'large' => 'required', 
-            'extraLarge' => 'required', 
+            'extraLarge' => '', 
 
         ]);
     
@@ -82,7 +82,7 @@ class FreebiesController extends Controller
             'small' => '',
             'medium' => 'required',
             'large' => 'required',
-            'extraLarge' => 'required',
+            'extraLarge' => '',
         ]);
     
         // Find the existing record

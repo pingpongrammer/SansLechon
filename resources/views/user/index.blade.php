@@ -347,10 +347,9 @@
                                                 <input hidden name="price" value="{{$mombizz->price}}">
                                                 <select class="input form-control mt-1" name="size" id="inputTypeMombizz{{ $loop->index }}" onchange="checkInputTypeMombizz({{ $loop->index }})">
                                                     <option value="">-Select Size-</option>
-                                                    <option value="small" {{ old('size') == 'small' ? 'selected' : '' }}>Small(6x6 tall) - ₱{{$categories->small}}</option>
-                                                    <option value="medium" {{ old('size') == 'medium' ? 'selected' : '' }}>Medium(7x5 tall) - ₱{{$categories->medium}}</option>
-                                                    <option value="large" {{ old('size') == 'large' ? 'selected' : '' }}>Large(8x4 tall) - ₱{{$categories->large}}</option>
-                                                    <option value="xlarge" {{ old('size') == 'xlarge' ? 'selected' : '' }}>Extra Large(9x4 tall) - ₱{{$categories->extraLarge}}</option>
+                                                    <option value="medium" {{ old('size') == 'medium' ? 'selected' : '' }}>Medium(7x5 tall) - ₱{{$mombizz->medium}}</option>
+                                                    <option value="large" {{ old('size') == 'large' ? 'selected' : '' }}>Large(8x4 tall) - ₱{{$mombizz->large}}</option>
+                                                    <option value="xlarge" {{ old('size') == 'xlarge' ? 'selected' : '' }}>Extra Large(9x4 tall) - ₱{{$mombizz->extraLarge}}</option>
                                                 </select>
                                         </div>
 
