@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\FreebiesController;
 use App\Http\Controllers\AffiliateController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ActivityLogController;
@@ -132,6 +133,18 @@ use App\Http\Controllers\ActivityLogController;
             
             Route::get('/customer-registered', [AccountController::class, 'customerRegistered']);
 
+            Route::get('/add-freebies', [FreebiesController::class, 'addfreebies']);
+            
+            Route::post('/storeFreebies', [FreebiesController::class, 'storeFreebies']);
+
+            Route::get('/freebies', [FreebiesController::class, 'freebies']);
+
+            Route::get('/freebiesView/{id}', [FreebiesController::class, 'freebiesView']);
+
+            Route::post('/freebiesDelete/{id}', [FreebiesController::class, 'freebiesDelete']);
+
+            Route::post('/freebiesUpdate/{id}', [FreebiesController::class, 'freebiesUpdate']);
+            
     });
 
 
@@ -246,8 +259,7 @@ use App\Http\Controllers\ActivityLogController;
     });
 
 
-    Route::get('/settings', [OrderController::class, 'settings']);
-    Route::post('/settingsStore', [OrderController::class, 'settingsStore']);
+
 
     Route::get('/dash', function () {
         return view('layout.admin-dashboard');

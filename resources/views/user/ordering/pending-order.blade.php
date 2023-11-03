@@ -9,7 +9,14 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-brown">
-                <h5 class="modal-title text-white" id="exampleModalLabel">Order Information (Order Paid)</h5>
+                @foreach($order['items'] as $letchon)
+                    @if($letchon->orders->status === 'new')
+                        <h5 class="modal-title text-white" id="exampleModalLabel">Order Information (Order On Process)</h5>
+                    @endif
+                    @if($letchon->orders->status === 'pending')
+                    <h5 class="modal-title text-white" id="exampleModalLabel">Order Information (Order Confirmed)</h5>
+                    @endif
+                @endforeach
             </div>
             <div class="modal-body">
                 <div class="card">

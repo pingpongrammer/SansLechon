@@ -13,6 +13,10 @@
     <script src="https://kit.fontawesome.com/b3f15bab34.js" crossorigin="anonymous"></script>
     <title>San's Lechon</title>
     <link rel="icon" href="../assets/img/loginIcon.png">
+    <link rel="stylesheet" href="/assets/css/user-dashboard.css">
+    <link rel="stylesheet" href="/assets/css/order.css">
+
+    
 </head>
 
 <body class="bg-orange-50 relative font-roboto font-medium ">
@@ -111,6 +115,15 @@
 
             <div class="flex mt-2 m-3 hover:bg-orange-50 p-2 rounded-lg duration-300 text-orange-50 hover:text-gray-950">
                 <div class="w-7">
+                    <i class="fa fa-gift pr-2"></i>
+                </div>
+                <div class="w-48">
+                    <a href="/freebies" class="text-sm">Freebies</a>
+                </div>
+            </div>
+
+            <div class="flex mt-2 m-3 hover:bg-orange-50 p-2 rounded-lg duration-300 text-orange-50 hover:text-gray-950">
+                <div class="w-7">
                     <i class="fa fa-clock pr-2"></i>
                 </div>
                 <div class="w-48">
@@ -125,7 +138,7 @@
         </main>
 
         <!-- Footer -->
-        <footer class="fixed bottom-4 w-full text-xs text-gray-800 text-center mt">
+        <footer class="fixed bottom-4 w-full text-xs text-gray-800 text-center mt-4">
             @San's Lechon | Designed and Created by Pingpongrammer
         </footer>
     </div>

@@ -67,6 +67,10 @@
     width:245px
 }
 
+.freebies-image{
+    height:50px; 
+    width:50px
+}
 @media screen and (max-width: 505px) {
 
     .box-image{

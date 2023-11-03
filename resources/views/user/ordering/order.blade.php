@@ -44,13 +44,13 @@
                                     <div class="row">
                                       <div class="col-3 px-1">
                                         @foreach($freeby as $freebies)
-                                        @if($freebies->freeb1 === null && $freebies->freeby1 && $freebies->freeby1->shop === 'cake')
+                                        @if($freebies->freeb1 === null && $freebies->freeby1 && $freebies->freeby1->shop === 'sweet bites')
                                             <img class="box-imagee card-img rounded-0 img-fluid" src="/assets/img/cake.png" id="image{{ $loop->index }}">
                                         @endif
                                         @if($freebies->freeb1 == null)
                                         <img class="box-imagee card-img rounded-0 img-fluid" src="/assets/img/cake.png" id="image{{ $loop->index }}">
                                         @endif
-                                        @if($freebies->freeb1 != null && $freebies->freeby1 && $freebies->freeby1->shop === 'cake')
+                                        @if($freebies->freeb1 != null && $freebies->freeby1 && $freebies->freeby1->shop === 'sweet bites')
                                         {{-- @if($freebies->category_id != null) --}}
                                         <img class="box-imagee card-img rounded-0 img-fluid" id="preview" src="{{ asset('storage/' . $freebies->freeby1->img) }}" alt=""/>
                                         @endif

@@ -20,7 +20,7 @@ class OrderController extends Controller
         $user_id = auth()->user()->id; 
 
         $letc = Letchon::all();
-        $cat = Categories::where('shop', 'cake')->get();
+        $cat = Categories::where('shop', 'sweet bites')->get();
         $mombi = Categories::where('shop', 'mombizz')->get();
         $cartCount = Cart::where('username', $user)
                         ->where('status', 'cart')
@@ -94,7 +94,7 @@ class OrderController extends Controller
         $user = auth()->user()->username;
         $let = Letchon::find($id);
         $letc = Letchon::all();
-        $cat = Categories::where('shop', 'cake')->get();
+        $cat = Categories::where('shop', 'sweet bites')->get();
         $mombi = Categories::where('shop', 'mombizz')->get();
         $freeby = Freebies::where('user_id', $user_id)->get();
         $cartCount = Cart::where('username', $user)
@@ -614,14 +614,6 @@ $user_name = auth()->user()->username;
         }
         return view('user.ordering.cart', ['cartItems' => $cartItems, 'totalPrice' => $totalPrice, 'cartCount'=>$cartCount]);
     }
-    
-    
-
-
-    public function settings(){
-        return view('admin.settings');
-    }
-
  
     public function custPendingOrder(){
         $orders = Orders::all();
@@ -700,43 +692,6 @@ $user_name = auth()->user()->username;
         return view('user.ordering.pending-order', ['cartCount'=>$cartCount, 'orderData'=>$orderData]);
     }
     
-    
-    
 
 
-
-    public function settingsStore(Request $request){
-        // dd($request->all());
-        $request->validate([
-            'img' => 'required', 
-            'shop' => 'required', 
-            'type' => 'required', 
-            'description' => 'required', 
-            'small' => '', 
-            'medium' => 'required', 
-            'large' => 'required', 
-            'extraLarge' => 'required', 
-
-        ]);
-    
-        $pot = null;
-    
-        if($request->hasFile('img')){
-            $pot = $request->file('img')->store('pictures', 'public');
-        }
-    
-        $categories = new Categories([
-            'img' => $pot,
-            'shop' => $request->shop,
-            'type' => $request->type,
-            'description' => $request->description,
-            'small' => $request->small,
-            'medium' => $request->medium,
-            'large' => $request->large,
-            'extraLarge' => $request->extraLarge,
-        ]);
-        $categories->save();
-    
-        return back();
-    }
 }
