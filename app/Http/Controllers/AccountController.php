@@ -97,21 +97,16 @@ class AccountController extends Controller
             'username' => ['required','min:4', Rule::unique('users', 'username')],
             'phone_number' => ['required','numeric', Rule::unique('users', 'phone_number')],
             'adminType' => 'required',
+            'referral_code' => 'required',
             'password' => ['required', 'confirmed', 'min:6'],
-            'freebies1' => 'nullable|file|mimes:jpeg,png,jpg',
-            'freebies2' => 'nullable|file|mimes:jpeg,png,jpg',
         ]);
             //Hash Password
         $formFields['password'] =  bcrypt($formFields['password']);
-        $path1 = $request->file('image1') ? $request->file('freebies1')->store('pictures', 'public') : null;
-        $path2 = $request->file('image2') ? $request->file('freebies2')->store('pictures', 'public') : null;
        
         $user = User::create($formFields);
 
         Freebies::create([
             'user_id' => $user->id,
-            'freebies1' => $path1,
-            'freebies2' => $path2,
         ]);
 
         return back()->with('message', 'Registration Complete! You can now login.');

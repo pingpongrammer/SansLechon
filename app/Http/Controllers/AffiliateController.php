@@ -156,7 +156,7 @@ class AffiliateController extends Controller
 
         $totalOrders = Orders::where('referral_code', $affiliateRef)
                             ->where('payment', 'new')
-                            ->where('payment', 'success')
+                            ->orWhere('payment', 'success')
                             ->orWhere('payment', 'request')->count();
         
         $orders = Orders::where('referral_code', $affiliateRef)

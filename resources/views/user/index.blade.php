@@ -287,10 +287,10 @@
                                 <input hidden name="price" value="{{$categories->price}}">
                                 <select class="input form-control mt-1" name="size" id="inputType{{ $loop->index }}" onchange="checkInputType({{ $loop->index }})">
                                     <option value="">-Select Size-</option>
-                                    <option value="small" {{ old('size') == 'small' ? 'selected' : '' }}>Small(6x6 tall) - ₱{{$categories->small}}</option>
-                                    <option value="medium" {{ old('size') == 'medium' ? 'selected' : '' }}>Medium(7x5 tall) - ₱{{$categories->medium}}</option>
-                                    <option value="large" {{ old('size') == 'large' ? 'selected' : '' }}>Large(8x4 tall) - ₱{{$categories->large}}</option>
-                                    <option value="xlarge" {{ old('size') == 'xlarge' ? 'selected' : '' }}>Extra Large(9x4 tall)- ₱{{$categories->extraLarge}}</option>
+                                    <option value="small" {{ old('size') == 'small' ? 'selected' : '' }}>Small(6x6 tall) - ₱{{$categories->small}} or add - {{$categories->small - 600}}</option>
+                                    <option value="medium" {{ old('size') == 'medium' ? 'selected' : '' }}>Medium(7x5 tall) - ₱{{$categories->medium}} or  add - {{$categories->medium - 600}}</option>
+                                    <option value="large" {{ old('size') == 'large' ? 'selected' : '' }}>Large(8x4 tall) - ₱{{$categories->large}} or  add - {{$categories->large - 600}}</option>
+                                    <option value="xlarge" {{ old('size') == 'xlarge' ? 'selected' : '' }}>Extra Large(9x4 tall)- ₱{{$categories->extraLarge}} or  add - {{$categories->extraLarge  - 600}}</option>
                                 </select>
                                 
                             </div>
@@ -347,9 +347,11 @@
                                                 <input hidden name="price" value="{{$mombizz->price}}">
                                                 <select class="input form-control mt-1" name="size" id="inputTypeMombizz{{ $loop->index }}" onchange="checkInputTypeMombizz({{ $loop->index }})">
                                                     <option value="">-Select Size-</option>
-                                                    <option value="medium" {{ old('size') == 'medium' ? 'selected' : '' }}>Medium(7x5 tall) - ₱{{$mombizz->medium}}</option>
-                                                    <option value="large" {{ old('size') == 'large' ? 'selected' : '' }}>Large(8x4 tall) - ₱{{$mombizz->large}}</option>
-                                                    <option value="xlarge" {{ old('size') == 'xlarge' ? 'selected' : '' }}>Extra Large(9x4 tall) - ₱{{$mombizz->extraLarge}}</option>
+                                                    <option value="medium" {{ old('size') == 'medium' ? 'selected' : '' }}>Medium(7x5 tall) - ₱{{$mombizz->medium}} or add - {{$mombizz->small - 499}}</option>
+                                                    <option value="large" {{ old('size') == 'large' ? 'selected' : '' }}>Large(8x4 tall) - ₱{{$mombizz->large}} or add - {{$mombizz->small - 499}}</option>
+                                                    @if($mombizz->extraLarge != null)
+                                                    <option value="xlarge" {{ old('size') == 'xlarge' ? 'selected' : '' }}>Extra Large(9x4 tall) - ₱{{$mombizz->extraLarge}} or add - {{$mombizz->small - 499}}</option>
+                                                    @endif
                                                 </select>
                                         </div>
 
