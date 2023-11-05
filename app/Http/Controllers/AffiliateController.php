@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\User;
 use App\Models\Orders;
 use App\Models\PageView;
@@ -150,27 +151,27 @@ class AffiliateController extends Controller
         //Marketer Dashboard
         public function marketerDashboard(){
 
-        $affiliateRef = auth()->user()->referral_code;
-        $pageViewCount = PageView::where('referral_code', $affiliateRef)->count();
-        $webviews = User::where('referral_code', $affiliateRef)->count() - 1;
-
-        $totalOrders = Orders::where('referral_code', $affiliateRef)
-                            ->where('payment', 'new')
-                            ->orWhere('payment', 'success')
-                            ->orWhere('payment', 'request')->count();
+            $affiliateRef = auth()->user()->referral_code;
+            $pageViewCount = PageView::where('referral_code', $affiliateRef)->count();
+            $webviews = User::where('referral_code', $affiliateRef)->count() - 1;
         
-        $orders = Orders::where('referral_code', $affiliateRef)
-                    ->where('payment', 'new')
-                    ->where('status', 'success')
-                    ->orWhere('payment', 'request')
-                    ->get();
-
-        $comission = $orders->sum(function ($order) {
-            return ($order->qty * $order->price) * 0.02;  // Calculate the total price for each order and sum them up
-        });
-
+            $orders = Orders::where('referral_code', $affiliateRef)
+                        ->where('payment', 'new')
+                        ->where('status', 'success')
+                        ->orWhere('payment', 'request')
+                        ->get();
+        
+            $order_ids = $orders->pluck('id')->toArray();
+            
+            $totalOrders = Cart::whereIn('orders_id', $order_ids)->count();
+        
+            $comission = Cart::whereIn('orders_id', $order_ids)->get()->sum(function ($cart) {
+                return $cart->price + $cart->priceCake + $cart->priceMom;
+            }) * 0.02;
+        
             return view('marketer.marketer-dashboard', ['webviews' => $webviews, 'totalOrders' => $totalOrders, 'comission' => $comission, 'pageViewCount' => $pageViewCount]);
         }
+        
 
 
             //Marketer Wallet

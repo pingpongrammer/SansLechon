@@ -360,7 +360,7 @@ $user_name = auth()->user()->username;
                     'letchon_id' => $request->letchon_id,
                     'username' => $user_name,
                     'shop' => 'Lechon',
-                    'priceCake' => $request->priceCake !== null ? $request->priceCake - 500 : null,
+                    'priceCake' => $request->priceCake !== null ? $request->priceCake - 600 : null,
                     'priceMom' => $request->priceMom !== null ? $request->priceMom - 499 : null,
                     'sizeCake' =>$request->sizeCake,
                     'sizeMom' =>$request->sizeMOm,
@@ -463,7 +463,7 @@ $user_name = auth()->user()->username;
             'freeb2' => $free->freeb2,
             'sizeCake' => $free->sizeCake,
             'sizeMom' => $free->sizeMom,
-            'priceCake' => $free->priceCake !== null ? $free->priceCake - 500 : null,
+            'priceCake' => $free->priceCake !== null ? $free->priceCake - 600 : null,
             'priceMom' => $free->priceMom !== null ? $free->priceMom - 499 : null,
         ]);
     
@@ -481,13 +481,13 @@ $user_name = auth()->user()->username;
                 $cake = null;
                 break;
             case 'medium':
-                $cake = 600;
+                $cake = 750;
                 break;
             case 'large':
-                $cake = 700;
+                $cake = 850;
                 break;
             case 'xlarge':
-                $cake = 800;
+                $cake = 950;
                 break;
         }
 

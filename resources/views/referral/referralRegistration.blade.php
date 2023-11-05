@@ -79,7 +79,7 @@
                     <input hidden  name="referral_code" value="{{ $referral }}">
                     <div class="button">
                         <button>Register</button>
-                        <h2>Already have an account? <a href="/">Login</a></h2>
+                        <h2>Already have an account? <a href="{{$url}}">Login</a></h2>
                     </div>
                 </div>
             </div>

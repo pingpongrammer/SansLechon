@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\User;
 use App\Models\Orders;
 use Illuminate\Http\Request;
@@ -24,13 +25,12 @@ class DashboardController extends Controller
         }
 
         $orders = Orders::where('status', 'success')->get();
-        
- 
-        $sales = $orders->sum(function ($order) {
-            return $order->qty * $order->price;  // Calculate the total price for each order and sum them up
-        });
 
-        // $sales = $qty * $prices; 
+        $order_ids = $orders->pluck('id')->toArray();
+        
+        $sales = Cart::whereIn('orders_id', $order_ids)->get()->sum(function ($cart) {
+            return $cart->price + $cart->priceCake + $cart->priceMom;
+        });
 
         $newCus = Orders::where('status', 'new')->count();
         $succ = Orders::where('status', 'success')->count();

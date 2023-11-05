@@ -9,14 +9,28 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-brown">
-                @foreach($order['items'] as $letchon)
+                
+                @php
+                $orderIds = [];
+            @endphp
+            
+            @foreach($order['items'] as $letchon)
+                @if(!in_array($letchon->orders->id, $orderIds))
+                    @php
+                        $orderIds[] = $letchon->orders->id;
+                    @endphp
+            
                     @if($letchon->orders->status === 'new')
                         <h5 class="modal-title text-white" id="exampleModalLabel">Order Information (Order On Process)</h5>
+                    @elseif($letchon->orders->status === 'pending')
+                        <h5 class="modal-title text-white" id="exampleModalLabel">Order Information (Order Confirmed)</h5>
+                    @elseif($letchon->orders->status === 'success')
+                        <h5 class="modal-title text-white" id="exampleModalLabel">Order Information (Order Success and Delivered)</h5>
                     @endif
-                    @if($letchon->orders->status === 'pending')
-                    <h5 class="modal-title text-white" id="exampleModalLabel">Order Information (Order Confirmed)</h5>
-                    @endif
-                @endforeach
+                @endif
+            @endforeach
+            
+                
             </div>
             <div class="modal-body">
                 <div class="card">

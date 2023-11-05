@@ -45,7 +45,7 @@
                     </div>
                     <div class="button">
                         <button>Login</button>
-                        <h2>Don't have an account? <a href="/register">Register Here</a></h2>
+                        <h2>Don't have an account? <a href="{{$url}}">Register Here</a></h2>
                     </div>
                 </div>
             </div>

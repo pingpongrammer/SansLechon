@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\User;
 use App\Models\Orders;
 use App\Models\Account;
@@ -56,18 +57,40 @@ class AccountController extends Controller
     }
 
     public function affiliatePartnerView(Request $request, $id){
-        $letc = User::find($id);
-        
-        $part = $letc->referral_code;
-        $partner = Orders::where('referral_code', $part)
-                        ->where('status', 'success')->get();
+        $user = User::find($id);
 
-        $comission = $partner->sum(function ($order) {
-            return ($order->qty * $order->price) * 0.02;  // Calculate the total price for each order and sum them up
-        });
-
-        return view('admin.accounts.affiliatePartnerView', [ 'partner'=>$partner, 'letc'=>$letc, 'comission'=>$comission]);
-    }
+        if (!$user) {
+            return redirect()->back()->with('error', 'User not found.');
+        }
+    
+        $referralCode = $user->referral_code;
+    
+        $successfulOrders = Orders::where('referral_code', $referralCode)
+            ->where('status', 'success')
+            ->get();
+    
+        $commissionData = [];
+    
+        foreach ($successfulOrders as $order) {
+            $orderIds = [$order->id];
+    
+            $commission = Cart::whereIn('orders_id', $orderIds)->get()->sum(function ($cart) {
+                return $cart->price + $cart->priceCake + $cart->priceMom;
+            }) * 0.02;
+    
+            $commissionData[$order->id] = $commission;
+            $customer[$order->id] = $order->name;
+            $date[$order->id] = $order->created_at;
+        }
+    
+        return view('admin.accounts.affiliatePartnerView', [
+            'user' => $user,
+            'successfulOrders' => $successfulOrders,
+            'commissionData' => $commissionData,
+            'customer' => $customer,
+            'date' => $date
+        ]);
+    }    
 
 
     public function accountStore(Request $request){
