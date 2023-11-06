@@ -6,7 +6,7 @@
 <div class="shadow-md shadow-[#d6987b] bg-white">
     <h1 class="text-center bg-[#A65B37] p-1 text-white font-bold"> Earning Summary</h1>
     <div class="flex justify-center items-center h-56">
-        <h5 class="text-xl">Total Earnings: <span class="text-4xl text-green-600">₱{{$comission}}</span></h5>
+        <h5 class="text-xl">Total Earnings: <span class="text-4xl text-green-600">₱{{$totalComission}}</span></h5>
     </div>
     <div class="flex justify-end m-4">
         <button onclick="requestPayDialog()" class="p-2 bg-[#A65B37] hover:bg-[#fcc1a5] rounded-xl text-white">Request Payout</button>
@@ -26,15 +26,13 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($totalOrders as $totalOrderss)
+            @foreach ($successfulOrders as $order)
             <tr class="border border-[#A65B37] text-sm sm:max-2xl:text-base">
-                <td class="p-3 whitespace-nowrap " scope="row">{{$loop->iteration }}</td>
-                <td class="p-3 whitespace-nowrap ">{{$totalOrderss->created_at}}</td>
-                <td class="p-3 whitespace-nowrap">{{$totalOrderss->name}}</td>
-                <td class="p-3 whitespace-nowrap">{{$totalOrderss->price}}</td>
-                <td class="p-3 whitespace-nowrap">{{$totalOrderss->qty}}</td>
-                <td class="p-3 whitespace-nowrap"><?php $com = ($totalOrderss->price * $totalOrderss->qty) * 0.02?>
-                    {{$com}}</td>
+                <td class="p-3 whitespace-nowrap ">{{ $date[$order->id] }}</td>
+                <td class="p-3 whitespace-nowrap">{{ $customer[$order->id] }}</td>
+                {{-- <td class="p-3 whitespace-nowrap">{{$partners->price}}</td> --}}
+
+                <td class="p-3 whitespace-nowrap">₱{{ $commissionData[$order->id] }}</td>
             </tr>
          @endforeach
         </tbody>
@@ -59,7 +57,7 @@
                 <h4 class="text-xs text-yellow-500">This action connot be undone</h4>
             </div>
             
-            <input hidden value="{{$comission}}" name="comission">
+            <input hidden value="" name="comission">
             <input hidden value="{{auth()->user()->name}}" name="name">
             <input hidden value="{{auth()->user()->username}}" name="username">
             <input hidden value="{{auth()->user()->phone_number}}" name="phone_number">

@@ -25,7 +25,7 @@
 
    /* Style for the "Copied" text */
    .copied-text {
-            position: absolute;
+            /* position: absolute; */
             top: 100%;
             left: 50%;
             transform: translateX(-50%);
@@ -57,11 +57,7 @@
     <span class="text-black ml-4">{{auth()->user()->created_at}}</span>
     <h1 class="font-bold mt-3 text-[#995333]">Your Referral Link:</h1>
     <h4 class="max-w-full text-sm break-all">
-      {{$url}}
-      <span class="paragraph-container">
-        <button id="copyButton" class="icon-copy-button"><i class="fas fa-copy"></i>Copy</button>
-        <span class="copied-text">Copied</span>
-      </span>
+      <span>{{ $url }}</span>
     </h4>
 </div>
   <div class="flex-1 ml-4">
@@ -105,7 +101,5 @@
   </div>
 </section>
 </form>
-
-
 
 @endsection

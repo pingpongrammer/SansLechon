@@ -178,21 +178,39 @@ class AffiliateController extends Controller
             public function mywallet(){
 
                 $affiliateRef = auth()->user()->referral_code;
-                $totalOrders = Orders::where('referral_code', $affiliateRef)
-                ->where('status', 'success')->get();
+
+                    
+                $successfulOrders = Orders::where('referral_code', $affiliateRef)
+                ->where('status', 'success')
+                ->get();
+
+  
+                $commissionData = [];
+    
+                foreach ($successfulOrders as $order) {
+                    $orderIds = [$order->id];
+
+                    $totalCommission = Cart::whereIn('orders_id', $orderIds)->get()->sum(function ($cart) {
+                        return $cart->price + $cart->priceCake + $cart->priceMom;
+                    }) * 0.02;
+            
+                    $commission = Cart::whereIn('orders_id', $orderIds)->get()->sum(function ($cart) {
+                        return $cart->price + $cart->priceCake + $cart->priceMom;
+                    }) * 0.02;
+            
+                    $commissionData[$order->id] = $commission;
+                    $customer[$order->id] = $order->name;
+                    $date[$order->id] = $order->created_at;
+                }
 
 
-                $comission = $totalOrders->sum(function ($order) {
-                    return ($order->qty * $order->price) * 0.02;  // Calculate the total price for each order and sum them up
-                });
-
-                // $totalAmount = 0;
-
-                // foreach ($totalOrders as $order) {
-                //     $com = ($order->price * $order->qty) * 0.02;
-                //     $totalAmount += $com;
-                // }
-            return view('marketer.mywallet', ['totalOrders' => $totalOrders, 'comission' => $comission]);
+            return view('marketer.mywallet', [
+                'successfulOrders' => $successfulOrders,
+                'commissionData' => $commissionData,
+                'customer' => $customer,
+                'date' => $date,
+                'totalComission'=>$totalCommission
+            ]);
         }
 
 

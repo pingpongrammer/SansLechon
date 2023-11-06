@@ -43,7 +43,7 @@
     
         
     @foreach($cartItems as $category)
-        @if($category->shop == 'cake')
+        @if($category->shop == 'sweet bites')
             <div class="shop">
                 <img src="/assets/img/shop1.jpg" class="img-logo">
                 <h5>Sweet Bites <span>by: Cindy Barcenas</span></h5>
@@ -54,7 +54,7 @@
     
 
         @foreach($cartItems as $category)
-        @if($category->shop == 'cake')
+        @if($category->shop == 'sweet bites')
             <div class="pt-1">
                 <div class="d-flex flex-column flex-md-row align-items-center justify-content-between bg-brown-body px-3 rounded">
                     <img class="card-img rounded-0 img-fluid" id="preview" src="{{$category->categories->img ? asset ('storage/' .$category->categories->img) : asset('/storage/no/-image.png')}}" alt="" style="width:85px; height:85px"/>

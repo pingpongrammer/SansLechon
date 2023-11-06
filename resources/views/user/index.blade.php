@@ -221,7 +221,7 @@
                     <h2 class="h5 text-center mt-3 mb-3">Cake</h2>
                 </div>
                 <div class="col-6 col-md-3 p-3 mt-3">
-                    <a href="#"><img src="./assets/img/mombizz2.jpg" class="index-image rounded-3 img-fluid border" ></a>
+                    <a href="#"><img src="./assets/img/mombizz5.jpg" class="index-image rounded-3 img-fluid border" ></a>
                     <h2 class="h5 text-center mt-3 mb-3">1 Food Bilao</h2>
                 </div>
                 <div class="col-6 col-md-3 p-3 mt-3">
@@ -320,7 +320,7 @@
                                     <div class="product-wap card rounded-0">
                                         <form method="POST" action="/changeFreeb2">
                                             @csrf
-                                            <img class="shop-img rounded-0 img-fluid" id="preview" src="./assets/img/mombizz2.jpg" alt="" />
+                                            <img class="shop-img rounded-0 img-fluid" id="preview" src="./assets/img/mombizz5.jpg" alt="" />
                                             <select class="input form-control mt-1" name="modeOfPayment" value="{{old('payment')}}"  required>
                                                 <option value="">-Select Size-</option>
                                                 <option value="medium">Medium(6-8 pax)</option>
@@ -347,10 +347,10 @@
                                                 <input hidden name="price" value="{{$mombizz->price}}">
                                                 <select class="input form-control mt-1" name="size" id="inputTypeMombizz{{ $loop->index }}" onchange="checkInputTypeMombizz({{ $loop->index }})">
                                                     <option value="">-Select Size-</option>
-                                                    <option value="medium" {{ old('size') == 'medium' ? 'selected' : '' }}>Medium(7x5 tall) - ₱{{$mombizz->medium}} or add - {{$mombizz->small - 499}}</option>
-                                                    <option value="large" {{ old('size') == 'large' ? 'selected' : '' }}>Large(8x4 tall) - ₱{{$mombizz->large}} or add - {{$mombizz->small - 499}}</option>
+                                                    <option value="medium" {{ old('size') == 'medium' ? 'selected' : '' }}>Medium(7x5 tall) - ₱{{$mombizz->medium}} or add - {{$mombizz->medium - 499}}</option>
+                                                    <option value="large" {{ old('size') == 'large' ? 'selected' : '' }}>Large(8x4 tall) - ₱{{$mombizz->large}} or add - {{$mombizz->large - 499}}</option>
                                                     @if($mombizz->extraLarge != null)
-                                                    <option value="xlarge" {{ old('size') == 'xlarge' ? 'selected' : '' }}>Extra Large(9x4 tall) - ₱{{$mombizz->extraLarge}} or add - {{$mombizz->small - 499}}</option>
+                                                    <option value="xlarge" {{ old('size') == 'xlarge' ? 'selected' : '' }}>Extra Large(9x4 tall) - ₱{{$mombizz->extraLarge}} or add - {{$mombizz->extraLarge - 499}}</option>
                                                     @endif
                                                 </select>
                                         </div>
