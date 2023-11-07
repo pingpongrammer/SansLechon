@@ -179,21 +179,33 @@ class AffiliateController extends Controller
 
                 $affiliateRef = auth()->user()->referral_code;
 
-                    
+                     
+            $orders = Orders::where('referral_code', $affiliateRef)
+            ->where('payment', 'new')
+            ->where('status', 'success')
+            ->orWhere('payment', 'request')
+            ->get();
+
+            $order_ids = $orders->pluck('id')->toArray();
+
+            $totalOrders = Cart::whereIn('orders_id', $order_ids)->count();
+
+            $totalCommission = Cart::whereIn('orders_id', $order_ids)->get()->sum(function ($cart) {
+                return $cart->price + $cart->priceCake + $cart->priceMom;
+            }) * 0.02;
+
+            
+
+
                 $successfulOrders = Orders::where('referral_code', $affiliateRef)
                 ->where('status', 'success')
                 ->get();
 
-  
                 $commissionData = [];
     
                 foreach ($successfulOrders as $order) {
                     $orderIds = [$order->id];
 
-                    $totalCommission = Cart::whereIn('orders_id', $orderIds)->get()->sum(function ($cart) {
-                        return $cart->price + $cart->priceCake + $cart->priceMom;
-                    }) * 0.02;
-            
                     $commission = Cart::whereIn('orders_id', $orderIds)->get()->sum(function ($cart) {
                         return $cart->price + $cart->priceCake + $cart->priceMom;
                     }) * 0.02;

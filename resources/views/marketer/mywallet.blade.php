@@ -20,14 +20,13 @@
                 <th class="p-3 text-left whitespace-nowrap">No.</th>
                 <th class="p-3 text-left whitespace-nowrap">Date</th>
                 <th class="p-3 text-left whitespace-nowrap">Customer</th>
-                <th class="p-3 text-left whitespace-nowrap">Amount</th>
-                <th class="p-3 text-left whitespace-nowrap">Qty</th>
                 <th class="p-3 text-left whitespace-nowrap">Comission</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($successfulOrders as $order)
             <tr class="border border-[#A65B37] text-sm sm:max-2xl:text-base">
+                <td class="p-3 whitespace-nowrap " scope="row">{{$loop->iteration }}</td>
                 <td class="p-3 whitespace-nowrap ">{{ $date[$order->id] }}</td>
                 <td class="p-3 whitespace-nowrap">{{ $customer[$order->id] }}</td>
                 {{-- <td class="p-3 whitespace-nowrap">{{$partners->price}}</td> --}}
