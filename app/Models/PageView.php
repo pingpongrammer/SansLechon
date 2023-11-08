@@ -10,8 +10,8 @@ class PageView extends Model
     use HasFactory;
 
     protected $fillable = [
-        'page_name',
-        'ip_address',
+        'username',
+        'views',
         'referral_code',
     ];
 }

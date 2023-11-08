@@ -152,7 +152,7 @@ class AffiliateController extends Controller
         public function marketerDashboard(){
 
             $affiliateRef = auth()->user()->referral_code;
-            $pageViewCount = PageView::where('referral_code', $affiliateRef)->count();
+            $pageViewCount = PageView::where('referral_code', $affiliateRef)->value('views');
             $webviews = User::where('referral_code', $affiliateRef)->count() - 1;
         
             $orders = Orders::where('referral_code', $affiliateRef)
@@ -176,36 +176,33 @@ class AffiliateController extends Controller
 
             //Marketer Wallet
             public function mywallet(){
-
                 $affiliateRef = auth()->user()->referral_code;
-
-                     
-            $orders = Orders::where('referral_code', $affiliateRef)
-            ->where('payment', 'new')
-            ->where('status', 'success')
-            ->orWhere('payment', 'request')
-            ->get();
-
-            $order_ids = $orders->pluck('id')->toArray();
-
-            $totalOrders = Cart::whereIn('orders_id', $order_ids)->count();
-
-            $totalCommission = Cart::whereIn('orders_id', $order_ids)->get()->sum(function ($cart) {
-                return $cart->price + $cart->priceCake + $cart->priceMom;
-            }) * 0.02;
-
             
-
-
+                $orders = Orders::where('referral_code', $affiliateRef)
+                    ->where('payment', 'new')
+                    ->where('status', 'success')
+                    ->orWhere('payment', 'request')
+                    ->get();
+            
+                $order_ids = $orders->pluck('id')->toArray();
+            
+                $totalOrders = Cart::whereIn('orders_id', $order_ids)->count();
+            
+                $totalCommission = Cart::whereIn('orders_id', $order_ids)->get()->sum(function ($cart) {
+                    return $cart->price + $cart->priceCake + $cart->priceMom;
+                }) * 0.02;
+            
                 $successfulOrders = Orders::where('referral_code', $affiliateRef)
-                ->where('status', 'success')
-                ->get();
-
+                    ->where('status', 'success')
+                    ->get();
+            
                 $commissionData = [];
-    
+                $customer = []; 
+                $date = []; 
+            
                 foreach ($successfulOrders as $order) {
                     $orderIds = [$order->id];
-
+            
                     $commission = Cart::whereIn('orders_id', $orderIds)->get()->sum(function ($cart) {
                         return $cart->price + $cart->priceCake + $cart->priceMom;
                     }) * 0.02;
@@ -214,17 +211,16 @@ class AffiliateController extends Controller
                     $customer[$order->id] = $order->name;
                     $date[$order->id] = $order->created_at;
                 }
-
-
-            return view('marketer.mywallet', [
-                'successfulOrders' => $successfulOrders,
-                'commissionData' => $commissionData,
-                'customer' => $customer,
-                'date' => $date,
-                'totalComission'=>$totalCommission
-            ]);
-        }
-
+            
+                return view('marketer.mywallet', [
+                    'successfulOrders' => $successfulOrders,
+                    'commissionData' => $commissionData,
+                    'customer' => $customer,
+                    'date' => $date,
+                    'totalComission'=>$totalCommission
+                ]);
+            }
+            
 
         
 }

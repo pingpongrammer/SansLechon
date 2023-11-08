@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('page_views', function (Blueprint $table) {
             $table->id();
-            $table->string('page_name'); // Add a column to store the page name or URL
-            $table->string('ip_address');
+            $table->string('username'); // Add a column to store the page name or URL
+            $table->string('views');
             $table->string('referral_code');
             $table->timestamps();
         });

@@ -18,7 +18,8 @@
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="/assets/css/fontawesome.min.css">
-
+    <link rel="stylesheet" href="/assets/css/user-dashboard.css">
+    <link rel="stylesheet" href="/assets/css/order.css">
        <!-- Slick -->
        <link rel="stylesheet" type="text/css" href="/assets/css/slick.min.css">
        <link rel="stylesheet" type="text/css" href="/assets/css/slick-theme.css">
@@ -40,18 +41,18 @@ https://templatemo.com/tm-559-zay-shop
 
 <body>
     <!-- Start Top Nav -->
-    <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+    <nav class="navbar navbar-expand-lg bg-brown navbar-light d-none d-lg-block" id="templatemo_nav_top">
         <div class="container text-light">
             <div class="w-100 d-flex justify-content-between">
                 <div>
                     <i class="fa fa-envelope mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none">sanslechon@gmail.com</a>
+                    <a class="navbar-sm-brand text-white text-decoration-none">sanslechon@gmail.com</a>
                     <i class="fa fa-phone mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none">09776162392</a>
+                    <a class="navbar-sm-brand text-white text-decoration-none">09776162392</a>
                 </div>
                 <div>
-                    <a class="text-light" href="https://www.facebook.com/profile.php?id=100092437762406" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
-                    <a class="text-light" href="#" ><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+                    <a class="text-white" href="https://www.facebook.com/profile.php?id=100092437762406" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                    <a class="text-white" href="#" ><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
                     {{-- <a class="text-light" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-sm fa-fw me-2"></i></a> --}}
                 </div>
             </div>
@@ -83,14 +84,14 @@ https://templatemo.com/tm-559-zay-shop
     
 
     <!-- Start Footer -->
-    <footer class="bg-dark" id="tempaltemo_footer">
+    <footer class="bg-brown" id="tempaltemo_footer">
 
 
-        <div class="w-100 bg-black py-3">
+        <div class="w-100 bg-brown py-3">
             <div class="container">
                 <div class="row pt-2">
                     <div class="col-12">
-                        <p class="text-right text-light">
+                        <p class="text-right text-white">
                             Copyright &copy; 2023 San's Lechon 
                             | @Pingpongrammer
                         </p>

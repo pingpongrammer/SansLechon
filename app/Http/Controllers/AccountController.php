@@ -69,7 +69,9 @@ class AccountController extends Controller
             ->where('status', 'success')
             ->get();
     
-        $commissionData = [];
+            $commissionData = [];
+            $customer = []; 
+            $date = []; 
     
         foreach ($successfulOrders as $order) {
             $orderIds = [$order->id];
@@ -173,6 +175,12 @@ class AccountController extends Controller
             ]);
             $user->save();
 
+            PageView::create([
+                'username' => $request->username, 
+                'views' => 0,
+                'referral_code' => $referralCode,
+            ]);
+
             return back()->with('message', 'Your Registration has been successful, You can now login in SansLechon login page');
     } 
 
@@ -189,12 +197,12 @@ class AccountController extends Controller
             $domain = URL::to('/');
             $url = $domain.'/referralLogin?ref='.$referral;
 
-                    // Track the page view
-    PageView::create([
-        'page_name' => 'registration', // Set the page name or URL
-        'ip_address' => $request->ip(),
-        'referral_code' => $referral,
-    ]);
+            $count = PageView::where('referral_code', $referral)->first();
+            $countViews = $count->views + 1;
+            
+            PageView::where('referral_code', $referral)->update([
+                'views' => $countViews,
+            ]);
 
             if(count($userData) > 0){
                 
