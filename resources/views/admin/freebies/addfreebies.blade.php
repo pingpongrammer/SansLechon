@@ -34,6 +34,7 @@
             <option value="">-Select Type- </option>
             <option value="cake">Cake</option>
             <option value="bilao">Bilao</option>
+            <option value="minimalist">Minimalist</option>
          </select>
     </div>
     

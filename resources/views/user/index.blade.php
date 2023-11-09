@@ -59,7 +59,7 @@
                                 <h2 style="text-align: center">Freebies</h2>
                                 {{-- <h3 class="h2">Aliquip ex ea commodo consequat</h3> --}}
                                 <p>
-                                    "San's Lechon: Celebrate with Tradition and Enjoy Freebies! Order now and get 3 bottles of beer, chicharrón, and sauce to make your feast even more special!"
+                                    "San's Lechon: Celebrate with Tradition and Enjoy Freebies! Order now and get a Cake, 1 Food Bilao, 2 Bottles of 1.5 Coke and Sauce to make your feast even more special!"
                                 </p>
                             </div>
                         </div>
@@ -258,11 +258,10 @@
                                 @csrf
                                 <img class="shop-img rounded-0 img-fluid" id="preview" src="./assets/img/cake.png"  alt=""/>
                                 <select class="input form-control mt-1" name="size" required>
-                                    {{-- <option value="">-Select Size-</option> --}}
-                                    <option value="small" {{ old('size') == 'small' ? 'selected' : '' }}>Small(6x6 tall)</option>
-                                    <option value="medium" {{ old('size') == 'medium' ? 'selected' : '' }}>Medium(7x5 tall)</option>
-                                    <option value="large" {{ old('size') == 'large' ? 'selected' : '' }}>Large(8x4 tall)</option>
-                                    <option value="xlarge" {{ old('size') == 'xlarge' ? 'selected' : '' }}>Extra Large(9x4 tall)</option>
+                                    <option value="">-Select Size-</option>
+                                    <option value="small" {{ old('size') == 'small' ? 'selected' : '' }}>Small(6x3) - ₱480 or add - ₱0</option>
+                                    <option value="medium" {{ old('size') == 'medium' ? 'selected' : '' }}>Medium(7x3) - ₱560 or add - ₱80</option>
+                                    <option value="large" {{ old('size') == 'large' ? 'selected' : '' }}>Large(8x3) - ₱790 or add - ₱380</option>
                                 </select>
                                 
                             </div>

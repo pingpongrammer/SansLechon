@@ -12,11 +12,15 @@ class FreebiesController extends Controller
     public function freebies(){
         $freeb1 = Categories::orderBy('id','DESC')
                             ->where('shop', 'sweet bites')
+                            ->where('type', 'cake')
                             ->get();
         $freeb2 = Categories::orderBy('id','DESC')
                             ->where('shop', 'mombizz')
                             ->get();
-        return view('admin.freebies.freebies', ['freeb1'=>$freeb1, 'freeb2'=>$freeb2]);
+        $freeb3 = Categories::orderBy('id','DESC')
+                            ->where('type', 'minimalist')
+                            ->get();
+        return view('admin.freebies.freebies', ['freeb1'=>$freeb1, 'freeb2'=>$freeb2, 'freeb3'=>$freeb3 ]);
     }
 
     public function freebiesView(Request $request, $id){
