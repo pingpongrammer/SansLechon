@@ -149,7 +149,7 @@
                               
                                   <div class="col-3 px-1">
                                     <div class="card rounded-3">
-                                      <img class="box-image  rounded-3 img-fluid" src="/assets/img/coke1.jpg" >
+                                      <img class="box-image  rounded-3 img-fluid" src="/assets/img/coke2.jpg" >
                                     </div>
                                   </div>
                               
@@ -225,7 +225,7 @@
                     <h2 class="h5 text-center mt-3 mb-3">1 Food Bilao</h2>
                 </div>
                 <div class="col-6 col-md-3 p-3 mt-3">
-                    <a href="#"><img src="./assets/img/coke1.jpg" class="index-image rounded-3 img-fluid border" ></a>
+                    <a href="#"><img src="./assets/img/coke2.jpg" class="index-image rounded-3 img-fluid border" ></a>
                     <h2 class="h5 text-center mt-3 mb-3">1.5 COKE</h2>
                 </div>
                 <div class="col-6 col-md-3 p-3 mt-3">

@@ -122,7 +122,7 @@ class AccountController extends Controller
             'username' => ['required','min:4', Rule::unique('users', 'username')],
             'phone_number' => ['required','numeric', Rule::unique('users', 'phone_number')],
             'adminType' => 'required',
-            'referral_code' => 'required',
+            'referral_code' => '',
             'password' => ['required', 'confirmed', 'min:6'],
         ]);
             //Hash Password
@@ -197,21 +197,23 @@ class AccountController extends Controller
             $domain = URL::to('/');
             $url = $domain.'/referralLogin?ref='.$referral;
 
-            $count = PageView::where('referral_code', $referral)->first();
-            $countViews = $count->views + 1;
-            
-            PageView::where('referral_code', $referral)->update([
-                'views' => $countViews,
-            ]);
 
-            if(count($userData) > 0){
+            
+            if(count($userData) > 0 ){
+                $count = PageView::where('referral_code', $referral)->first();
+                $countViews = $count->views + 1;
+                
+                PageView::where('referral_code', $referral)->update([
+                    'views' => $countViews,
+                ]);
                 
                 return view('referral.referralRegistration', compact('referral', 'url'));
 
             }else{
                 return view('referral.404');
             }
-        }
+
+    } 
         else{
             return redirect('/');
         }

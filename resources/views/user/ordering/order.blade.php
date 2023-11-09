@@ -33,14 +33,14 @@
 
         <div class="row">
             <div class="col-lg-10 mt-5 mx-auto">
-                <div class="card">
+                <div class="card ">
                     <div class="card-body">
-                        <div class="card mb-3">
+                        <div class="card border-0">
                             <img class=" img-fluid" src="/assets/img/Lechon.png" alt="Card image cap" id="product-detail">
                         </div>
                         <div class="row">
                             <div >
-                                <div class="container pt-1">
+                                <div class="container pt-1 lechon-bg">
                                     <div class="row">
                                       <div class="col-3 px-1">
                                         @foreach($freeby as $freebies)
@@ -72,7 +72,7 @@
                                   
                                       <div class="col-3 px-1">
                                         <div class="card rounded-0">
-                                          <img class="box-imagee card-img rounded-0 img-fluid" src="/assets/img/coke1.jpg" >
+                                          <img class="box-imagee card-img rounded-0 img-fluid" src="/assets/img/coke2.jpg" >
                                         </div>
                                       </div>
                                   
