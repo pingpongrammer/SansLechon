@@ -259,9 +259,9 @@
                                 <img class="shop-img rounded-0 img-fluid" id="preview" src="./assets/img/cake.png"  alt=""/>
                                 <select class="input form-control mt-1" name="size" required>
                                     <option value="">-Select Size-</option>
-                                    <option value="small" {{ old('size') == 'small' ? 'selected' : '' }}>Small(6x3) - ₱480 or add - ₱0</option>
-                                    <option value="medium" {{ old('size') == 'medium' ? 'selected' : '' }}>Medium(7x3) - ₱560 or add - ₱80</option>
-                                    <option value="large" {{ old('size') == 'large' ? 'selected' : '' }}>Large(8x3) - ₱790 or add - ₱380</option>
+                                    <option value="small" {{ old('size') == 'small' ? 'selected' : '' }}>Small(6x3) - ₱500 or add - ₱0</option>
+                                    <option value="medium" {{ old('size') == 'medium' ? 'selected' : '' }}>Medium(7x3) - ₱580 or add - ₱80</option>
+                                    <option value="large" {{ old('size') == 'large' ? 'selected' : '' }}>Large(8x3) - ₱790 or add - ₱290</option>
                                 </select>
                                 
                             </div>
@@ -286,10 +286,10 @@
                                 <input hidden name="price" value="{{$categories->price}}">
                                 <select class="input form-control mt-1" name="size" id="inputType{{ $loop->index }}" onchange="checkInputType({{ $loop->index }})">
                                     <option value="">-Select Size-</option>
-                                    <option value="small" {{ old('size') == 'small' ? 'selected' : '' }}>Small(6x6 tall) - ₱{{$categories->small}} or add - {{$categories->small - 600}}</option>
-                                    <option value="medium" {{ old('size') == 'medium' ? 'selected' : '' }}>Medium(7x5 tall) - ₱{{$categories->medium}} or  add - {{$categories->medium - 600}}</option>
-                                    <option value="large" {{ old('size') == 'large' ? 'selected' : '' }}>Large(8x4 tall) - ₱{{$categories->large}} or  add - {{$categories->large - 600}}</option>
-                                    <option value="xlarge" {{ old('size') == 'xlarge' ? 'selected' : '' }}>Extra Large(9x4 tall)- ₱{{$categories->extraLarge}} or  add - {{$categories->extraLarge  - 600}}</option>
+                                    <option value="small" {{ old('size') == 'small' ? 'selected' : '' }}>Small(6x6 tall) - ₱{{$categories->small}} or add - {{$categories->small - 500}}</option>
+                                    <option value="medium" {{ old('size') == 'medium' ? 'selected' : '' }}>Medium(7x5 tall) - ₱{{$categories->medium}} or  add - {{$categories->medium - 500}}</option>
+                                    <option value="large" {{ old('size') == 'large' ? 'selected' : '' }}>Large(8x4 tall) - ₱{{$categories->large}} or  add - {{$categories->large - 500}}</option>
+                                    <option value="xlarge" {{ old('size') == 'xlarge' ? 'selected' : '' }}>Extra Large(9x4 tall)- ₱{{$categories->extraLarge}} or  add - {{$categories->extraLarge  - 500}}</option>
                                 </select>
                                 
                             </div>

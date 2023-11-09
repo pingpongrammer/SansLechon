@@ -238,7 +238,7 @@
                                                         <div id="targetHeading" class="d-flex justify-content-between text-uppercase text-success text-sm mb-4" >
                                                             <div style="width: 220px">
                                                                 <h6 class="fw-boldd">Lechon</h6>
-                                                                <h6 class="fw-boldd">+ {{ $freebies->freeby1 ? $freebies->freeby1->type : 'Cake' }}, {{ $freebies->freeby1 ? $freebies->freeby1->description : null}} ({{ $freebies->sizeCake ? $freebies->sizeCake : 'Small'}}) -additional (₱{{ $freebies->priceCake ? $freebies->priceCake : '0' }})</h6>
+                                                                <h6 class="fw-boldd">+ {{ $freebies->freeby1 ? $freebies->freeby1->type : 'Cake' }}, {{ $freebies->freeby1 ? $freebies->freeby1->description : null}} ({{ $freebies->sizeCake ? $freebies->sizeCake : 'Small'}}) -additional (₱{{ $freebies->priceCake ? $freebies->priceCake - 500 : '0' }})</h6>
                                                                 <h6 class="fw-boldd"> + {{ $freebies->freeby2 ? $freebies->freeby2->type : 'Bilao' }}, {{ ($freebies->freeby2 ? $freebies->freeby2->description : 'Pancit Guisado') }} ({{ $freebies->sizeMom ? $freebies->sizeMom : 'Small'}})-addtional (₱{{ $freebies->priceMom ? $freebies->priceMom : '0' }})</h6>
                                                                 <h6 class="fw-boldd d-block"> + 1.5 Coke</h6>
                                                                 <h6 class="fw-boldd d-block"> + Sauce</h6>
@@ -246,7 +246,7 @@
                                                             <h6 class="fw-boldd">{{$freebies->size}}</h6>
                                                             <div>
                                                                 <h6 class="fw-boldd d-block">₱{{$let->prices}}</h6>
-                                                                <h6 class="fw-boldd d-block">{{ $freebies->priceCake ? '+' . '₱' .$freebies->priceCake : null }}</h6>
+                                                                <h6 class="fw-boldd d-block">{{ $freebies->priceCake ? '+' . '₱' .$freebies->priceCake - 500: null }}</h6>
                                                                 <h6 class="fw-boldd d-block">{{ $freebies->priceMom ? '+' . '₱' .$freebies->priceMom : null }}</h6>
                                                             </div>
                                                         </div>
