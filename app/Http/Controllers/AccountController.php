@@ -197,16 +197,7 @@ class AccountController extends Controller
             $domain = URL::to('/');
             $url = $domain.'/referralLogin?ref='.$referral;
 
-
-            
             if(count($userData) > 0 ){
-                $count = PageView::where('referral_code', $referral)->first();
-                $countViews = $count->views + 1;
-                
-                PageView::where('referral_code', $referral)->update([
-                    'views' => $countViews,
-                ]);
-                
                 return view('referral.referralRegistration', compact('referral', 'url'));
 
             }else{

@@ -1,4 +1,4 @@
-@extends('layout.header-footer-layout')
+@extends('layout.openView')
 @section('content')
 @include('components.customer-alert-message')
 
@@ -116,46 +116,23 @@
                             <div class="container pt-1 lechon-bg pb-2">
                                 <div class="row">
                                   <div class="col-3 px-1">
-                                    <div class="card rounded-3 ">
-                                        @foreach($freeby as $freebies)
-                                        @if($freebies->freeb1 === null && $freebies->freeby1 && $freebies->freeby1->shop === 'sweet bites')
-                                            <img class="box-image  rounded-3 img-fluid" src="/assets/img/cake.png" id="image{{ $loop->index }}">
-                                        @endif
-                                        @if($freebies->freeb1 == null)
-                                        <img class="box-image  rounded-3 img-fluid" src="/assets/img/cake.png" id="image{{ $loop->index }}">
-                                        @endif
-                                        @if($freebies->freeb1 != null && $freebies->freeby1 && $freebies->freeby1->shop === 'sweet bites')
-                                        {{-- @if($freebies->category_id != null) --}}
-                                        <img class="box-image rounded-3 img-fluid" id="preview" src="{{ asset('storage/' . $freebies->freeby1->img) }}" alt=""/>
-                                        @endif
-                                        @endforeach
+                                    <div class="card rounded-3">
+                                      <img class="box-image  rounded-3 img-fluid" src="./assets/img/cake.png" >
                                     </div>
                                   </div>
                                   <div class="col-3 px-1">
                                     <div class="card rounded-3">
-                                        @foreach($freeby as $freebies)
-                                        @if($freebies->freeb2 === null && $freebies->freeby2 && $freebies->freeby2->shop === 'mombizz')
-                                            <img class="box-image rounded-3 img-fluid" src="/assets/img/mombizz2.jpg" id="image{{ $loop->index }}">
-                                        @endif
-                                        @if($freebies->freeb2 != null && $freebies->freeby2 && $freebies->freeby2->shop === 'mombizz')
-                                        <img class="box-image rounded-3 img-fluid" id="preview" src="{{ asset('storage/' . $freebies->freeby2->img) }}" alt=""/>
-                                        @endif
-                                        @if($freebies->freeb2 == null)
-                                        <img class="box-image rounded-3 img-fluid" src="/assets/img/mombizz2.jpg" id="image{{ $loop->index }}">
-                                        @endif
-                                        @endforeach
+                                      <img class="box-image  rounded-3 img-fluid" src="./assets/img/mombizz5.jpg" >
                                     </div>
                                   </div>
-                              
                                   <div class="col-3 px-1">
                                     <div class="card rounded-3">
-                                      <img class="box-image  rounded-3 img-fluid" src="/assets/img/coke2.jpg" >
+                                      <img class="box-image  rounded-3 img-fluid" src="./assets/img/coke2.jpg" >
                                     </div>
                                   </div>
-                              
                                   <div class="col-3 px-1">
                                     <div class="card rounded-3">
-                                      <img class="box-image  rounded-3 img-fluid" src="/assets/img/freebies3.jpg" >
+                                      <img class="box-image  rounded-3 img-fluid" src="./assets/img/freebies3.jpg" >
                                     </div>
                                   </div>
                                 </div>
@@ -169,18 +146,8 @@
                             
 
                          <div class="d-flex justify-content-center">
-                            <form method="POST"action="{{ url('addCartLechon', ['id' => $letchon->id]) }}">
-                                @csrf
-                                <button type="submit" class="btn btn-success btn-sm  mr-2">Add to Cart</button> 
-                                <input hidden name="letchon_id" value="{{$letchon->id}}">
-                                <input hidden name="price" value="{{$letchon->prices}}">
-                                <input hidden name="size" value="{{$letchon->kls}}">
-                                <input hidden name="type" value="Lechon">
-                                <input hidden name="shop" value="Lechon">
-                                <input hidden name="username" value="{{auth()->user()->username}}">
-                                <input hidden name="status" value="cart">
-                            </form>
-                            <a href="{{url('orderViewKls',$letchon->id)}}" class="btn btn-success btn-sm">Order Now</a>
+               
+                            <a href="/login" class="btn btn-success btn-sm">Order Now</a>
 
                         </div>
                         </div>
@@ -266,9 +233,7 @@
                                 
                             </div>
                         <div class="d-flex mt-3" style="justify-content: center; items:center">
-                            
-                            <button type="submit" class="btn btn-success btn-sm mr-2 order-button">Change Freebies</button>
-
+                            <a href="/login" class="btn btn-success btn-sm  mr-2 order-button">Change Freebies</a>
                         </form>
                     </div>
                     </div>
@@ -280,10 +245,6 @@
                         <form method="POST" action="{{ url('addCart', $categories->id) }}">
                                 @csrf
                                 <img class="shop-img rounded-0 img-fluid" id="preview" src="{{$categories->img ? asset ('storage/' .$categories->img) : asset('/storage/no/-image.png')}}" alt=""/>
-                                <input hidden name="username" value="{{auth()->user()->username}}">
-                                <input hidden name="shop" value="{{$categories->shop}}">
-                                <input hidden name="status" value="cart">
-                                <input hidden name="price" value="{{$categories->price}}">
                                 <select class="input form-control mt-1" name="size" id="inputType{{ $loop->index }}" onchange="checkInputType({{ $loop->index }})">
                                     <option value="">-Select Size-</option>
                                     <option value="small" {{ old('size') == 'small' ? 'selected' : '' }}>Small(6x6 tall) - ₱{{$categories->small}} or add - {{$categories->small - 500}}</option>
@@ -329,7 +290,7 @@
                                     
                                     </div>
                                         <div class="d-flex mt-3" style="justify-content: center; items:center">
-                                        <button class="btn btn-success btn-sm  mr-2 order-button">Change Freebies</button>
+                                        <a href="/login" class="btn btn-success btn-sm  mr-2 order-button">Change Freebies</a>
                                     </form>
                                         </div>
                                 </div> 
@@ -340,10 +301,7 @@
                                             <form method="POST" action="{{ url('addCart', $mombizz->id) }}">
                                                 @csrf
                                                 <img class="shop-img rounded-0 img-fluid" id="preview" src="{{$mombizz->img ? asset ('storage/' .$mombizz->img) : asset('/storage/no/-image.png')}}" alt="" />
-                                                <input hidden name="username" value="{{auth()->user()->username}}">
-                                                <input hidden name="shop" value="{{$mombizz->shop}}">
-                                                <input hidden name="status" value="cart">
-                                                <input hidden name="price" value="{{$mombizz->price}}">
+
                                                 <select class="input form-control mt-1" name="size" id="inputTypeMombizz{{ $loop->index }}" onchange="checkInputTypeMombizz({{ $loop->index }})">
                                                     <option value="">-Select Size-</option>
                                                     <option value="medium" {{ old('size') == 'medium' ? 'selected' : '' }}>Medium - ₱{{$mombizz->medium}} or add - {{$mombizz->medium - 499}}</option>

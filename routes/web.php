@@ -9,6 +9,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\FreebiesController;
+use App\Http\Controllers\OpenViewController;
 use App\Http\Controllers\AffiliateController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ActivityLogController;
@@ -24,9 +25,23 @@ use App\Http\Controllers\ActivityLogController;
 |
 */
 
+    //Open View
+    Route::get('/', [OpenViewController::class, 'openHome']);
+
+    Route::get('/o-contact', [OpenViewController::class, 'openContact']);
+
+    Route::get('/o-about', [OpenViewController::class, 'openAbout']);
+
+    Route::get('/o-shop', [OpenViewController::class, 'openShop']);
+
+    Route::get('/ref-home', [OpenViewController::class, 'refHome']);
+
+    Route::get('/ref-contact', [OpenViewController::class, 'refContact']);
+
+    Route::get('/ref-about', [OpenViewController::class, 'refAbout']);
 
     //Login
-    Route::get('/', [UserController::class, 'login'])->name('login');
+    Route::get('/login', [UserController::class, 'login'])->name('login');
 
     Route::post('/verify-otp', [UserController::class, 'verifyOtp']);
 

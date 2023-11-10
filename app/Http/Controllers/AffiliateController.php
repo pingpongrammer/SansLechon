@@ -18,7 +18,7 @@ class AffiliateController extends Controller
 
         public function editProfile(){
             $domain = URL::to('/');
-            $url = $domain.'/refferalRegistration?ref='.auth()->user()->referral_code;
+            $url = $domain.'/ref-home?ref='.auth()->user()->referral_code;
             return view('marketer.editProfile', ['url'=>$url]);
         }
 
@@ -144,7 +144,7 @@ class AffiliateController extends Controller
         //Marketer DashboardProfile
         public function marketerProfile(){
             $domain = URL::to('/');
-            $url = $domain.'/refferalRegistration?ref='.auth()->user()->referral_code;
+            $url = $domain.'/ref-home?ref='.auth()->user()->referral_code;
             return view('marketer.marketer-profile', ['url'=>$url]);
         }
 
